@@ -11,7 +11,7 @@ public class SeleniumTestEx1 {
 
     //1 Create a new test in a new Java class, specify test name in accordance with checking functionality
     @Test
-    public void testLogin(){
+    public void testLogin() {
 
         //2 Open test site by URL
         WebDriver driver = new ChromeDriver();
@@ -71,5 +71,4 @@ public class SeleniumTestEx1 {
         driver.close();
 
     }
-
 }
