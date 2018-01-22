@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Smoke test" verbose="1" thread-count="1" parallel="methods">
+    <test name="Smoke">
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <exclude name="regress"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="homework2"/>
+        </packages>
+    </test>
+</suite>

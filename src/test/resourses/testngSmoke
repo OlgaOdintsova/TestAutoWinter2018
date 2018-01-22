@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression test" verbose="1" thread-count="1" parallel="methods">
+    <test name="Regression">
+        <groups>
+            <run>
+                <include name="regress"/>
+                <exclude name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="homework2"/>
+        </packages>
+    </test>
+</suite>
