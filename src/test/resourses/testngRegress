@@ -1,15 +1,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Smoke test" verbose="1" thread-count="1" parallel="methods">
-    <test name="Smoke">
+<suite name="Regression test" verbose="1" thread-count="1" parallel="methods">
+    <test name="Regress">
         <groups>
             <run>
-                <include name="smoke"/>
-                <exclude name="regress"/>
+                <include name="regress"/>
+
             </run>
         </groups>
-        <packages>
-            <package name="homework2"/>
-        </packages>
+        <classes>
+            <class name="homework2.RegressTest"/>
+            <class name="homework2.SmokeAndRegressTest"/>
+        </classes>
     </test>
 </suite>

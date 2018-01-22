@@ -14,7 +14,6 @@ public abstract class TestBase {
         driver = new ChromeDriver();
         driver.navigate().to("https://jdi-framework.github.io/tests");
         driver.manage().window().maximize();
-
     }
 
     @AfterSuite(alwaysRun = true)
