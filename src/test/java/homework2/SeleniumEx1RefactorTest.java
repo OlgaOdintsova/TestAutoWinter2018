@@ -19,7 +19,6 @@ public class SeleniumEx1RefactorTest {
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
-
         setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
     }
@@ -51,7 +50,6 @@ public class SeleniumEx1RefactorTest {
     @AfterTest
     public void tearDown() {
         driver.close();
-        System.out.println("AfterTest annotation worked");
     }
 
     //Create a new test in a new Java class, specify test name in accordance with checking functionality
