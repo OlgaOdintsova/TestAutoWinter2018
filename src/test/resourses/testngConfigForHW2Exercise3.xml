@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Use All Annotations" verbose="1">
+    <test name="Test with annotation">
+        <classes>
+            <class name="homework2.SeleniumEx1RefactorTest"/>
+        </classes>
+    </test>
+</suite>
