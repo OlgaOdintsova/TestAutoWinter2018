@@ -8,6 +8,7 @@ import org.testng.annotations.*;
 
 import java.util.List;
 
+import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -18,12 +19,16 @@ public class SeleniumEx1RefactorTest {
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
+
+        setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
     }
 
     @AfterSuite(alwaysRun = true)
-    public void tearDown() {
-        driver.close();
+    public void checkDriverAfterSuite() {
+        if (driver.toString().contains("null")) {
+            driver.quit();
+        }
     }
 
     @BeforeMethod(alwaysRun = true)
@@ -33,16 +38,19 @@ public class SeleniumEx1RefactorTest {
 
     @AfterMethod(alwaysRun = true)
     public void notificationAfterMetod() {
+        System.out.println(System.currentTimeMillis());
         System.out.println("AfterMethod annotation worked");
     }
 
     @BeforeTest
     public void navigateBrowser() {
         driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
+        System.out.println(driver.getTitle());
     }
 
     @AfterTest
-    public void notificationAfterTest() {
+    public void tearDown() {
+        driver.close();
         System.out.println("AfterTest annotation worked");
     }
 
