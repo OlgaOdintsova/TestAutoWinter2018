@@ -84,10 +84,10 @@ public class SeleniumEx1RefactorTest {
         for (WebElement text : texts) {
             assertTrue(text.isDisplayed());
         }
-        assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM projec");
-        assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
-        assertEquals(texts.get(2).getText(), "To be multiplatform");
-        assertEquals(texts.get(3).getText(), "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
+        assertEquals("To include good practices\n" + "and ideas from successful\n" + "EPAM projec", texts.get(0).getText());
+        assertEquals("To be flexible and\n" + "customizable", texts.get(1).getText());
+        assertEquals("To be multiplatform", texts.get(2).getText());
+        assertEquals("Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…", texts.get(3).getText());
 
         //Assert that there are the main header and the text below it on the Home Page
         assertTrue(driver.findElement(By.cssSelector(".main-title")).isDisplayed());
