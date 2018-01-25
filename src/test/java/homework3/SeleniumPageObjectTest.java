@@ -4,23 +4,23 @@ import homework.page.IndexPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-public class SeleniumTestInPageObject {
+public class SeleniumPageObjectTest {
 
     private WebDriver driver;
     private IndexPage indexPage;
 
-    @BeforeClass
+    @BeforeSuite
     public void setUpBrowser() {
         driver = new ChromeDriver();
         indexPage = PageFactory.initElements(driver, IndexPage.class);
         driver.manage().window().maximize();
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown() {
         driver.close();
     }
@@ -45,7 +45,6 @@ public class SeleniumTestInPageObject {
         indexPage.checkTitle();
 
         //Assert that there are 4 images on the Home Page and they are displayed
-
         indexPage.checkImages();
 
         //Assert that there are 4 texts on the Home Page and check them by getting texts
