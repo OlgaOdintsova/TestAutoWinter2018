@@ -2,7 +2,11 @@ package homework2;
 
 import homework.base.TestBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,6 +16,19 @@ import static org.testng.Assert.assertEquals;
 
 
 public class DPTest extends TestBase {
+
+    private WebDriver driver = new ChromeDriver();
+
+    @BeforeClass
+    public void setUp() {
+        driver.navigate().to("https://jdi-framework.github.io/tests");
+        driver.manage().window().maximize();
+    }
+
+    @AfterClass
+    public void tearDown() {
+        driver.close();
+    }
 
     @DataProvider(parallel = true)
     public Object[][] dp() {

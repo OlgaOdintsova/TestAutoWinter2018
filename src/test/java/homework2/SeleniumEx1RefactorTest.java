@@ -15,12 +15,11 @@ import static org.testng.Assert.assertTrue;
 
 public class SeleniumEx1RefactorTest {
 
-    private static WebDriver driver;
+    private WebDriver driver;
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
         setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        driver = new ChromeDriver();
     }
 
     @AfterSuite(alwaysRun = true)
@@ -30,27 +29,29 @@ public class SeleniumEx1RefactorTest {
         }
     }
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeTest
     public void setWindowSize() {
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterTest
     public void notificationAfterMetod() {
         System.out.println(System.currentTimeMillis());
         System.out.println("AfterMethod annotation worked");
     }
 
-    @BeforeTest
+    @BeforeMethod(alwaysRun = true)
     public void navigateBrowser() {
-        driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
+        driver.navigate().to("https://jdi-framework.github.io/tests/");
         System.out.println(driver.getTitle());
     }
 
-    @AfterTest
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.close();
     }
+
 
     //Create a new test in a new Java class, specify test name in accordance with checking functionality
     @Test

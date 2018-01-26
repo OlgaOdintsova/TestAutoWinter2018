@@ -3,6 +3,9 @@ package homework2;
 import homework.base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -11,6 +14,18 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class SmokeAndRegressTest extends TestBase {
+
+    @BeforeClass(alwaysRun = true)
+    public void setUp() {
+        driver = new ChromeDriver();
+        driver.navigate().to("https://jdi-framework.github.io/tests");
+        driver.manage().window().maximize();
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void tearDown() {
+        driver.close();
+    }
 
     // Assert Browser title
     @Test(groups = {"smoke"})
