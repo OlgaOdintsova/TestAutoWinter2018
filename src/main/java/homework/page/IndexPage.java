@@ -7,11 +7,14 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static homework.emun.PageContentTextEnum.TEXT_CONTENT;
+import static homework.emun.PageContentTextEnum.TEXT_HEADER;
+import static homework.emun.PageContentTextEnum.getExpectedContent;
+import static homework.emun.UnderImagesTextEnum.getExpectedText;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class IndexPage {
-    private WebDriver driver;
 
     @FindBy(css = ".uui-profile-menu .dropdown-toggle")
     private WebElement loginFromButton;
@@ -47,28 +50,27 @@ public class IndexPage {
         submitButton.click();
     }
 
-    public WebElement getUserName() {
+    private WebElement getUserName() {
         return userName;
     }
 
-    public List<WebElement> getImages() {
+    private List<WebElement> getImages() {
         return images;
     }
 
-    public WebElement getHeadline() {
+    private WebElement getHeadline() {
         return headline;
     }
 
-    public WebElement getTextBelowHeadline() {
+    private WebElement getTextBelowHeadline() {
         return textBelowHeadline;
     }
 
-    public void open(String url, WebDriver driver) {
-        driver.navigate().to(url);
-        this.driver = driver;
+    public void open(WebDriver driver) {
+        driver.navigate().to("https://jdi-framework.github.io/tests/");
     }
 
-    public void checkTitle() {
+    public void checkTitle(WebDriver driver) {
         assertEquals(driver.getTitle(), "Index Page");
     }
 
@@ -83,25 +85,17 @@ public class IndexPage {
     }
 
     public void checkTextsUnderImages() {
-        List<WebElement> texts = driver.findElements(By.className("benefit-txt"));
         assertEquals(texts.size(), 4);
         for (WebElement text : texts) {
             assertTrue(text.isDisplayed());
+            assertTrue(getExpectedText().contains(text.getText().replaceAll("\n", " ")));
         }
-        assertEquals(texts.get(0).getText(), "To include good practices\n" + "and ideas from successful\n" + "EPAM projec");
-        assertEquals(texts.get(1).getText(), "To be flexible and\n" + "customizable");
-        assertEquals(texts.get(2).getText(), "To be multiplatform");
-        assertEquals(texts.get(3).getText(), "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
-
     }
 
     public void checkPageContent() {
-        assertEquals(getHeadline().getText(), "EPAM FRAMEWORK WISHES…");
+        assertTrue(getExpectedContent().contains(getHeadline().getText()));
         assertTrue(getHeadline().isDisplayed());
-        assertEquals(getTextBelowHeadline().getText(), "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING " +
-                        "ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, " +
-                        "QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE " +
-                        "IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
+        assertTrue(getExpectedContent().contains(getTextBelowHeadline().getText()));
         assertTrue(getTextBelowHeadline().isDisplayed());
     }
 }

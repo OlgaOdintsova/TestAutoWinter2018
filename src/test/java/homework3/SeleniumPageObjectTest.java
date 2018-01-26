@@ -30,10 +30,10 @@ public class SeleniumPageObjectTest {
     public void checkPageFunctionality() {
 
         //Open test site by URL
-        indexPage.open("https://jdi-framework.github.io/tests/index.htm", driver);
+        indexPage.open(driver);
 
         //Assert Browser title
-        indexPage.checkTitle();
+        indexPage.checkTitle(driver);
 
         //Perform login
         indexPage.login("epam", "1234");
@@ -42,7 +42,7 @@ public class SeleniumPageObjectTest {
         indexPage.checkUserName();
 
         //Assert Browser title
-        indexPage.checkTitle();
+        indexPage.checkTitle(driver);
 
         //Assert that there are 4 images on the Home Page and they are displayed
         indexPage.checkImages();
