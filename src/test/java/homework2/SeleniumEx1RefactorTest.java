@@ -36,9 +36,9 @@ public class SeleniumEx1RefactorTest {
     }
 
     @AfterTest
-    public void notificationAfterMetod() {
+    public void notificationAfterTest() {
         System.out.println(System.currentTimeMillis());
-        System.out.println("AfterMethod annotation worked");
+        System.out.println("AfterTest annotation worked");
     }
 
     @BeforeMethod(alwaysRun = true)
