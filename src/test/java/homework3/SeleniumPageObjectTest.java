@@ -4,8 +4,8 @@ import homework.page.IndexPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class SeleniumPageObjectTest {
@@ -13,14 +13,14 @@ public class SeleniumPageObjectTest {
     private WebDriver driver;
     private IndexPage indexPage;
 
-    @BeforeSuite
+    @BeforeClass
     public void setUpBrowser() {
         driver = new ChromeDriver();
         indexPage = PageFactory.initElements(driver, IndexPage.class);
         driver.manage().window().maximize();
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         driver.close();
     }

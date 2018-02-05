@@ -1,14 +1,11 @@
 package homework.page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static homework.emun.PageContentTextEnum.TEXT_CONTENT;
-import static homework.emun.PageContentTextEnum.TEXT_HEADER;
 import static homework.emun.PageContentTextEnum.getExpectedContent;
 import static homework.emun.UnderImagesTextEnum.getExpectedText;
 import static org.testng.Assert.assertEquals;
@@ -50,22 +47,6 @@ public class IndexPage {
         submitButton.click();
     }
 
-    private WebElement getUserName() {
-        return userName;
-    }
-
-    private List<WebElement> getImages() {
-        return images;
-    }
-
-    private WebElement getHeadline() {
-        return headline;
-    }
-
-    private WebElement getTextBelowHeadline() {
-        return textBelowHeadline;
-    }
-
     public void open(WebDriver driver) {
         driver.navigate().to("https://jdi-framework.github.io/tests/");
     }
@@ -75,13 +56,13 @@ public class IndexPage {
     }
 
     public void checkUserName() {
-        assertTrue(getUserName().isDisplayed());
-        assertTrue(getUserName().getText().equalsIgnoreCase("PITER CHAILOVSKII"));
+        assertTrue(userName.isDisplayed());
+        assertTrue(userName.getText().equalsIgnoreCase("PITER CHAILOVSKII"));
     }
 
     public void checkImages() {
-        assertEquals(getImages().size(), 4);
-        getImages().forEach(list -> assertTrue(list.isDisplayed()));
+        assertEquals(images.size(), 4);
+        images.forEach(list -> assertTrue(list.isDisplayed()));
     }
 
     public void checkTextsUnderImages() {
@@ -93,9 +74,9 @@ public class IndexPage {
     }
 
     public void checkPageContent() {
-        assertTrue(getExpectedContent().contains(getHeadline().getText()));
-        assertTrue(getHeadline().isDisplayed());
-        assertTrue(getExpectedContent().contains(getTextBelowHeadline().getText()));
-        assertTrue(getTextBelowHeadline().isDisplayed());
+        assertTrue(getExpectedContent().contains(headline.getText()));
+        assertTrue(headline.isDisplayed());
+        assertTrue(getExpectedContent().contains(textBelowHeadline.getText()));
+        assertTrue(textBelowHeadline.isDisplayed());
     }
 }
