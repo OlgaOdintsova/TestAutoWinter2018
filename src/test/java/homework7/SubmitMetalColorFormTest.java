@@ -38,7 +38,7 @@ public class SubmitMetalColorFormTest extends TestNGBase {
     public void submitMetalColorFormTest() {
         //Open Metals & Colors page by Header menu
         JDISite.homePage.header.selectOnMenu(METALS_AND_COLORS.page);
-        //JDISite.metalsAndColorsPage.isOpened();
+        JDISite.metalsAndColorsPage.shouldBeOpened();
 
         //Fill form Metals & Colors by data
         JDISite.metalsAndColorsPage.metalColorForm.submit(MetalColorFormData.DEFAULT);

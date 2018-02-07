@@ -44,13 +44,13 @@ public class MetalColorForm extends Form<MetalColorFormData> {
     @FindBy(id = "submit-button")
     private Button submit;
 
-    public void submit(MetalColorFormData mc) {
-        firstSummary.select(mc.getSummary().get(0).toString());
-        secondSummary.select(mc.getSummary().get(1).toString());
-        mc.getElements().forEach(elements::select);
-        color.select(mc.getColor());
-        metals.newInput(mc.getMetals());
-        vegetables.select(mc.getVegetables());
+    public void submit(MetalColorFormData mcData) {
+        firstSummary.select(mcData.getSummary().get(0).toString());
+        secondSummary.select(mcData.getSummary().get(1).toString());
+        mcData.getElements().forEach(elements::select);
+        color.select(mcData.getColor());
+        metals.newInput(mcData.getMetals());
+        vegetables.select(mcData.getVegetables());
 
         submit.click();
     }

@@ -6,8 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Getter
@@ -28,34 +29,13 @@ public class MetalColorFormData {
     private String metals;
     private List<String> vegetables;
 
-    public List<String> toLog() {
-        return new LinkedList<String>() {{
-            add(String.format("Summary: %s", summary.stream().mapToInt(Integer::new).sum()));
-            add(String.format("Elements: %s", elements.stream().collect(Collectors.joining(", "))));
-            add(String.format("Color: %s", color));
-            add(String.format("Metal: %s", metals));
-            add(String.format("Vegetables: %s", vegetables.stream().collect(Collectors.joining(", "))));
-        }};
+    public Set<String> toLog(){
+        Set<String> result = new HashSet<>();
+        result.add("Summary: " + summary.stream().mapToInt(Integer::intValue).sum());
+        result.add("Elements: " + elements.stream().collect(Collectors.joining(", ")));
+        result.add("Color: " + color);
+        result.add("Metal: " + metals);
+        result.add("Vegetables: " + vegetables.stream().collect(Collectors.joining(", ")));
+        return result;
     }
 }
-
-
-
-//public class MetalColorFormData extends DataClass {
-//
-//    public String oddsRadioButton;
-//    public String evenRadioButton;
-//    public String colorDropdown;
-//    public String metalDropdown;
-//    public String[] elements;
-//    public String[] vegetables;
-//
-//    public MetalColorFormData(DataUpdate newData) {
-//        this.oddsRadioButton = newData.oddsRadioButton;
-//        this.evenRadioButton = newData.evenRadioButton;
-//        this.colorDropdown = newData.colorDropdown;
-//        this.metalDropdown = newData.metalDropdown;
-//        this.elements = newData.elements;
-//        this.vegetables = newData.vegetables;
-//    }
-//}

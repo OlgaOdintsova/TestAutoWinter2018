@@ -15,10 +15,10 @@ public class JDIDropdown extends Dropdown {
         return getElements();
     }
 
-    public void clear() {
+    private void clear() {
         expandGetElements().stream()
-                .filter(e -> !Objects.isNull(e.findElement(By.tagName("input")).getAttribute("selected")))
-                .forEach(WebElement::click);
+                           .filter(element -> !Objects.isNull(element.findElement(By.tagName("input")).getAttribute("selected")))
+                           .forEach(WebElement::click);
     }
 
     public void select(List<String> items) {

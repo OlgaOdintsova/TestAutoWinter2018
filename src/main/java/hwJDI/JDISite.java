@@ -13,6 +13,7 @@ public class JDISite extends WebSite{
 
     @JPage(url = "index.html", title = "Index Page")
     public static HomePage homePage;
+
     @JPage(url = "metals-colors.html", title = "Metals and Colors")
     public static MetalsAndColorsPage metalsAndColorsPage;
 

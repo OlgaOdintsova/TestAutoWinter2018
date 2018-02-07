@@ -5,20 +5,18 @@ import hwJDI.form.MetalColorForm;
 import hwJDI.sections.ResultSection;
 import org.testng.Assert;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Set;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class MetalsAndColorsPage extends CommonPage {
     public MetalColorForm metalColorForm;;
-    public ResultSection resultSection;
+    private ResultSection resultSection;
 
     public void checkResult(MetalColorFormData metalColorFormData) {
-        List<String> actual = Arrays.asList(resultSection.results.getText().split("\n"));
-        List<String> expected = metalColorFormData.toLog();
+        Set<String> actual = Pattern.compile("\n").splitAsStream(resultSection.results.getText()).collect(Collectors.toSet());
+        Set<String> expected = metalColorFormData.toLog();
 
-        Assert.assertEquals(actual.size(), expected.size());
-        for (String e : expected) {
-            Assert.assertTrue(actual.contains(e));
-        }
+        Assert.assertEquals(expected, actual);
     }
 }
