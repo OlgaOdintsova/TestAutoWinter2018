@@ -23,7 +23,6 @@ public class Header extends Section{
     @FindBy(css = ".form-horizontal")
     private LoginForm loginForm;
 
-    //@FindBy(css = "[role='navigation']>.m-l8 li a")
     @FindBy(css = ".m-l8")
     private Menu<Enum> menuHeader;
 
@@ -35,6 +34,5 @@ public class Header extends Section{
 
     public void selectOnMenu(String firstLevelOfMenu) {
         menuHeader.select(firstLevelOfMenu);
-        System.out.println(menuHeader.getOptionsAsText());
     }
 }

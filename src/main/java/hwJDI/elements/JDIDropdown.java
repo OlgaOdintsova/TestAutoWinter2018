@@ -7,9 +7,10 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import java.util.Objects;
 
-@SuppressWarnings("unchecked")
+
 public class JDIDropdown extends Dropdown {
 
+    @SuppressWarnings("unchecked")
     private List<WebElement> expandGetElements() {
         expand();
         return getElements();

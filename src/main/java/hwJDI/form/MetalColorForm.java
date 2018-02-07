@@ -51,7 +51,6 @@ public class MetalColorForm extends Form<MetalColorFormData> {
         color.select(mcData.getColor());
         metals.newInput(mcData.getMetals());
         vegetables.select(mcData.getVegetables());
-
         submit.click();
     }
 }
