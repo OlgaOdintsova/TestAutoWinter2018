@@ -23,15 +23,18 @@ public class Header extends Section{
     @FindBy(css = ".form-horizontal")
     private LoginForm loginForm;
 
+    // TODO you should create your OWN enum
     @FindBy(css = ".m-l8")
     private Menu<Enum> menuHeader;
 
     public void loginAsUser(UserEnum userEnum) {
         profilePhoto.click();
+        // TODO you should use ENUM or CLASS, not both of them, it is not make a sense !!
         loginForm.loginAs(new User(userEnum));
         userName.should(Condition.text(userEnum.userName));
     }
 
+    // TODO this method will not work with second level of menu
     public void selectOnMenu(String firstLevelOfMenu) {
         menuHeader.select(firstLevelOfMenu);
     }

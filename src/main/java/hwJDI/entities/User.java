@@ -3,7 +3,7 @@ package hwJDI.entities;
 import com.epam.commons.DataClass;
 import hwJDI.enumJDI.UserEnum;
 
-public class User extends DataClass{
+public class User extends DataClass { // <-- !!
 
     private String login;
     private String password;

@@ -5,10 +5,15 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import hwJDI.JDISite;
 import hwJDI.entities.MetalColorFormData;
+import org.apache.maven.model.Build;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.sikuli.script.Do;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+
+import java.sql.Driver;
 
 import static hwJDI.enumJDI.HeaderMenuEnum.METALS_AND_COLORS;
 import static hwJDI.enumJDI.UserEnum.PITER;
@@ -34,6 +39,13 @@ public class SubmitMetalColorFormTest extends TestNGBase {
         JDISite.login(PITER);
     }
 
+    // TODO i cant execute your test
+    //    java.lang.RuntimeException: java.lang.AssertionError: Do action Open page 'Home Page' failed. Can't get result. Reason: java.lang.AssertionError: Can't get driver; Thread: 1
+    //    Drivers: CHROME:com.epam.jdi.uitests.web.selenium.driver.SeleniumDriverFactory$$Lambda$34/1353070773@35dab4eb; Run: java.lang.ThreadLocal@72cc7e6fException: Timed out waiting for driver server to start.
+    //    Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+    //    System info: host: 'EPRUPETW6349', ip: '192.168.99.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_65'
+    //    Driver info: driver.version: ChromeDriver
+    // !TODO
     @Test
     public void submitMetalColorFormTest() {
         //Open Metals & Colors page by Header menu
