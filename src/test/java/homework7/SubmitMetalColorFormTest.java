@@ -5,15 +5,10 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import hwJDI.JDISite;
 import hwJDI.entities.MetalColorFormData;
-import org.apache.maven.model.Build;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.sikuli.script.Do;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-
-import java.sql.Driver;
 
 import static hwJDI.enumJDI.HeaderMenuEnum.METALS_AND_COLORS;
 import static hwJDI.enumJDI.UserEnum.PITER;
