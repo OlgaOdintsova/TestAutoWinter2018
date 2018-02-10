@@ -18,7 +18,7 @@ public class JDIDropdown extends Dropdown {
 
     private void clear() {
         expandGetElements().stream()
-                           .filter(element -> !Objects.isNull(element.findElement(By.tagName("input")).getAttribute("selected")))
+                           .filter(element -> element.findElement(By.tagName("input")).getAttribute("selected") != null)
                            .forEach(WebElement::click);
     }
 
