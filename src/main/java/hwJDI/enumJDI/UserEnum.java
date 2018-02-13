@@ -1,18 +1,15 @@
 package hwJDI.enumJDI;
 
+import hwJDI.entities.User;
 import lombok.Getter;
 
 @Getter
 public enum UserEnum {
-        PITER("epam","1234","PITER CHAILOVSKI");
+    PITER(new User("epam", "1234", "PITER CHAILOVSKI"));
 
-        public final String login;
-        public final String password;
-        public final String userName;
+    private final User user;
 
-        UserEnum(String login, String password, String userName) {
-            this.login = login;
-            this.password = password;
-            this.userName = userName;
-        }
+    UserEnum(User user) {
+        this.user = user;
+    }
 }

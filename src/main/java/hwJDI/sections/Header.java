@@ -5,6 +5,7 @@ import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import hwJDI.entities.User;
+import hwJDI.enumJDI.HeaderMenuEnum;
 import hwJDI.enumJDI.UserEnum;
 import hwJDI.form.LoginForm;
 import org.openqa.selenium.support.FindBy;
@@ -24,12 +25,12 @@ public class Header extends Section{
     private LoginForm loginForm;
 
     @FindBy(css = ".m-l8")
-    private Menu<Enum> menuHeader;
+    private Menu<HeaderMenuEnum> menuHeader;
 
     public void loginAsUser(UserEnum userEnum) {
         profilePhoto.click();
-        loginForm.loginAs(new User(userEnum));
-        userName.should(Condition.text(userEnum.userName));
+        loginForm.loginAs(userEnum.getUser());
+        userName.should(Condition.text(userEnum.getUser().getUserName()));
     }
 
     public void selectOnMenu(String firstLevelOfMenu) {
