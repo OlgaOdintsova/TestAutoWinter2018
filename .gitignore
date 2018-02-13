@@ -1,4 +1,6 @@
 .idea
+.logs
 *.iml
 target
 out
+log.xml
