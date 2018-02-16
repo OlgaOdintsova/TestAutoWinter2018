@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class MetalsAndColorsPage extends CommonPage {
-    public MetalColorForm metalColorForm;;
+    public MetalColorForm metalColorForm;
     private ResultSection resultSection;
 
     public void checkResult(MetalColorFormData metalColorFormData) {
