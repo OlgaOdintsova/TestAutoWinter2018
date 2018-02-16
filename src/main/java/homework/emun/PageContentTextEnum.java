@@ -1,7 +1,6 @@
 package homework.emun;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Getter;
 
 public enum PageContentTextEnum {
 
@@ -11,17 +10,10 @@ public enum PageContentTextEnum {
             "QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE " +
             "IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
-    public String text;
-    private static List<String> contentEnum;
+    @Getter
+    private final String text;
 
     PageContentTextEnum(String text) {
         this.text = text;
-    }
-
-    public static List<String> getExpectedContent() {
-        contentEnum = new ArrayList<>();
-        contentEnum.add(TEXT_HEADER.text);
-        contentEnum.add(TEXT_CONTENT.text);
-        return contentEnum;
     }
 }

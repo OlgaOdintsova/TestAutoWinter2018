@@ -1,7 +1,9 @@
 package homework.emun;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Getter;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public enum UnderImagesTextEnum {
 
@@ -10,19 +12,16 @@ public enum UnderImagesTextEnum {
     TEXT_3("To be multiplatform"),
     TEXT_4("Already have good base (about 20 internal and some external projects), wish to get more…");
 
-    public String text;
-    private static List<String> textsEnum;
+    @Getter
+    private final String text;
 
     UnderImagesTextEnum(String text) {
         this.text = text;
     }
 
-    public static List<String> getExpectedText() {
-        textsEnum = new ArrayList<>();
-        textsEnum.add(TEXT_1.text);
-        textsEnum.add(TEXT_2.text);
-        textsEnum.add(TEXT_3.text);
-        textsEnum.add(TEXT_4.text);
-        return textsEnum;
+    public static Set<String> getExpectedText() {
+        return Arrays.stream(values())
+                     .map(UnderImagesTextEnum::getText)
+                     .collect(Collectors.toSet());
     }
 }
