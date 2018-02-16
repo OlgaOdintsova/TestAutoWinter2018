@@ -6,9 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class ResultSection extends Section {
 
-    @FindBy(xpath = "//ul[contains(@class, 'logs')]")
-    private TextArea logs;
-
     @FindBy(xpath = "//ul[contains(@class, 'results')]")
     public TextArea results;
 }

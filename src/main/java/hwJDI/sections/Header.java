@@ -4,7 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
-import hwJDI.entities.User;
 import hwJDI.enumJDI.HeaderMenuEnum;
 import hwJDI.enumJDI.UserEnum;
 import hwJDI.form.LoginForm;
