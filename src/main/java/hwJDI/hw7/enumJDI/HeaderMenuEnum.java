@@ -1,4 +1,4 @@
-package hwJDI.enumJDI;
+package hwJDI.hw7.enumJDI;
 
 public enum HeaderMenuEnum {
     HOME("Home"),

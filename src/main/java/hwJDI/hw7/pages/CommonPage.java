@@ -1,8 +1,8 @@
-package hwJDI.pages;
+package hwJDI.hw7.pages;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
-import hwJDI.sections.Header;
-import hwJDI.sections.LeftSideMenu;
+import hwJDI.hw7.sections.Header;
+import hwJDI.hw7.sections.LeftSideMenu;
 
 public class CommonPage extends WebPage{
     public LeftSideMenu leftSideMenu;

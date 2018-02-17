@@ -1,9 +1,9 @@
-package hwJDI.form;
+package hwJDI.hw7.form;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.RadioButtons;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
-import hwJDI.entities.MetalColorFormData;
+import hwJDI.hw7.entities.MetalColorFormData;
 import org.openqa.selenium.support.FindBy;
 
 public class SummaryForm extends Form<MetalColorFormData> {

@@ -1,4 +1,4 @@
-package hwJDI.form;
+package hwJDI.hw7.form;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.common.TextField;
@@ -8,8 +8,8 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.RadioButtons;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JDropdown;
-import hwJDI.elements.JDIDropdown;
-import hwJDI.entities.MetalColorFormData;
+import hwJDI.hw7.elements.JDIDropdown;
+import hwJDI.hw7.entities.MetalColorFormData;
 import org.openqa.selenium.support.FindBy;
 
 public class MetalColorForm extends Form<MetalColorFormData> {

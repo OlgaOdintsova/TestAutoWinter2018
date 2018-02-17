@@ -1,11 +1,11 @@
-package hwJDI;
+package hwJDI.hw7;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JPage;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JSite;
-import hwJDI.enumJDI.UserEnum;
-import hwJDI.pages.HomePage;
-import hwJDI.pages.MetalsAndColorsPage;
+import hwJDI.hw7.enumJDI.UserEnum;
+import hwJDI.hw7.pages.HomePage;
+import hwJDI.hw7.pages.MetalsAndColorsPage;
 
 
 @JSite("https://epam.github.io/JDI")
