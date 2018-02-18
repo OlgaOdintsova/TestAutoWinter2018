@@ -15,10 +15,10 @@ import org.openqa.selenium.support.FindBy;
 public class MetalColorForm extends Form<MetalColorFormData> {
 
 
-    @FindBy(css = "#odds-selector p")
+    @FindBy(css = "#odds-selector label")
     private RadioButtons firstSummary;
 
-    @FindBy(css = "#even-selector p")
+    @FindBy(css = "#even-selector label")
     private RadioButtons secondSummary;
 
     @FindBy(css = ".vertical-group p label")
@@ -45,12 +45,24 @@ public class MetalColorForm extends Form<MetalColorFormData> {
     private Button submit;
 
     public void submit(MetalColorFormData mcData) {
-        firstSummary.select(mcData.getSummary().get(0).toString());
-        secondSummary.select(mcData.getSummary().get(1).toString());
-        mcData.getElements().forEach(elements::select);
-        color.select(mcData.getColor());
-        metals.newInput(mcData.getMetals());
-        vegetables.select(mcData.getVegetables());
+
+        if (!mcData.getSummary().isEmpty()) {
+            firstSummary.select(mcData.getSummary().get(0).toString());
+            secondSummary.select(mcData.getSummary().get(1).toString());
+        }
+        if (!mcData.getElements().isEmpty()) {
+            mcData.getElements().forEach(elements::select);
+        }
+        if (!mcData.getColor().isEmpty()) {
+            color.select(mcData.getColor());
+        }
+        if (!mcData.getMetals().isEmpty()) {
+            metals.newInput(mcData.getMetals());
+        }
+        if (!mcData.getVegetables().isEmpty()) {
+            vegetables.select(mcData.getVegetables());
+        }
+
         submit.click();
     }
 }
