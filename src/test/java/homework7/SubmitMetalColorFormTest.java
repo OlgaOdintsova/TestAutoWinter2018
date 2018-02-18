@@ -3,15 +3,15 @@ package homework7;
 import com.epam.jdi.uitests.core.settings.JDISettings;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
-import hwJDI.hw7.JDISite;
-import hwJDI.hw7.entities.MetalColorFormData;
+import hwJDI.JDISite;
+import hwJDI.entities.MetalColorFormData;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import static hwJDI.hw7.enumJDI.HeaderMenuEnum.METALS_AND_COLORS;
-import static hwJDI.hw7.enumJDI.UserEnum.PITER;
+import static hwJDI.enumJDI.HeaderMenuEnum.METALS_AND_COLORS;
+import static hwJDI.enumJDI.UserEnum.PITER;
 
 public class SubmitMetalColorFormTest extends TestNGBase {
 

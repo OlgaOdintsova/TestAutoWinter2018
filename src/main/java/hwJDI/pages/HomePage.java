@@ -1,4 +1,4 @@
-package hwJDI.hw7.pages;
+package hwJDI.pages;
 
 public class HomePage extends CommonPage {
 }

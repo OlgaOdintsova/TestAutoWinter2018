@@ -1,4 +1,4 @@
-package hwJDI.hw7.entities;
+package hwJDI.entities;
 
 import lombok.Value;
 

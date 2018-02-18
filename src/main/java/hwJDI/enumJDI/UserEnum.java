@@ -1,6 +1,6 @@
-package hwJDI.hw7.enumJDI;
+package hwJDI.enumJDI;
 
-import hwJDI.hw7.entities.User;
+import hwJDI.entities.User;
 import lombok.Getter;
 
 @Getter

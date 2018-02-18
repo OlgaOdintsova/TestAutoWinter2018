@@ -1,4 +1,4 @@
-package hwJDI.hw7.elements;
+package hwJDI.elements;
 
 import com.epam.jdi.uitests.web.selenium.elements.complex.Dropdown;
 import org.openqa.selenium.By;

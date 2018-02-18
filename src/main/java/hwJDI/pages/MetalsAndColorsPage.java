@@ -1,8 +1,8 @@
-package hwJDI.hw7.pages;
+package hwJDI.pages;
 
-import hwJDI.hw7.entities.MetalColorFormData;
-import hwJDI.hw7.form.MetalColorForm;
-import hwJDI.hw7.sections.ResultSection;
+import hwJDI.entities.MetalColorFormData;
+import hwJDI.form.MetalColorForm;
+import hwJDI.sections.ResultSection;
 import org.testng.Assert;
 
 import java.util.Set;

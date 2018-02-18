@@ -1,4 +1,4 @@
-package hwJDI.hw7.sections;
+package hwJDI.sections;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.TextArea;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;

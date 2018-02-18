@@ -1,4 +1,4 @@
-package hwJDI.hw7.sections;
+package hwJDI.sections;
 
 public class LeftSideMenu {
 }

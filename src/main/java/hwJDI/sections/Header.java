@@ -1,4 +1,4 @@
-package hwJDI.hw7.sections;
+package hwJDI.sections;
 
 import com.codeborne.selenide.Condition;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
@@ -6,9 +6,9 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JMenu;
-import hwJDI.hw7.enumJDI.HeaderMenuEnum;
-import hwJDI.hw7.enumJDI.UserEnum;
-import hwJDI.hw7.form.LoginForm;
+import hwJDI.enumJDI.HeaderMenuEnum;
+import hwJDI.enumJDI.UserEnum;
+import hwJDI.form.LoginForm;
 import org.openqa.selenium.support.FindBy;
 
 public class Header extends Section{
