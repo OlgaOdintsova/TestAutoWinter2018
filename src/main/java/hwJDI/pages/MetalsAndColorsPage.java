@@ -1,22 +1,20 @@
 package hwJDI.pages;
 
 import hwJDI.entities.MetalColorFormData;
+import hwJDI.entities.MetalColorFormResult;
 import hwJDI.form.MetalColorForm;
 import hwJDI.sections.ResultSection;
-import org.testng.Assert;
 
-import java.util.Set;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+import static org.junit.Assert.assertEquals;
 
 public class MetalsAndColorsPage extends CommonPage {
-    public MetalColorForm metalColorForm;;
+    public MetalColorForm metalColorForm;
     private ResultSection resultSection;
 
-    public void checkResult(MetalColorFormData metalColorFormData) {
-        Set<String> actual = Pattern.compile("\n").splitAsStream(resultSection.results.getText()).collect(Collectors.toSet());
-        Set<String> expected = metalColorFormData.toLog();
+    public void checkResult(MetalColorFormData data) {
+        MetalColorFormResult expected = MetalColorFormResult.from(data);
+        MetalColorFormResult actual = MetalColorFormResult.from(resultSection.results.getText());
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 }

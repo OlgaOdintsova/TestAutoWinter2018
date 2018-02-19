@@ -9,7 +9,7 @@ import hwJDI.pages.MetalsAndColorsPage;
 
 
 @JSite("https://epam.github.io/JDI")
-public class JDISite extends WebSite{
+public class JDISite extends WebSite {
 
     @JPage(url = "index.html", title = "Index Page")
     public static HomePage homePage;

@@ -1,13 +1,15 @@
 package homework.page;
 
+import homework.emun.PageContentTextEnum;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Set;
 
-import static homework.emun.PageContentTextEnum.getExpectedContent;
 import static homework.emun.UnderImagesTextEnum.getExpectedText;
+import static java.util.stream.Collectors.toSet;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -62,21 +64,23 @@ public class IndexPage {
 
     public void checkImages() {
         assertEquals(images.size(), 4);
-        images.forEach(list -> assertTrue(list.isDisplayed()));
+        assertTrue(images.stream().allMatch(WebElement::isDisplayed));
     }
 
     public void checkTextsUnderImages() {
-        assertEquals(texts.size(), 4);
-        for (WebElement text : texts) {
-            assertTrue(text.isDisplayed());
-            assertTrue(getExpectedText().contains(text.getText().replaceAll("\n", " ")));
-        }
+        Set<String> actual = texts.stream()
+                                  .map(WebElement::getText)
+                                  .map(text -> text.replaceAll("\n", " "))
+                                  .collect(toSet());
+
+        assertEquals(getExpectedText(), actual);
+        assertTrue(texts.stream().allMatch(WebElement::isDisplayed));
     }
 
     public void checkPageContent() {
-        assertTrue(getExpectedContent().contains(headline.getText()));
+        assertEquals(PageContentTextEnum.TEXT_HEADER.getText(), headline.getText());
         assertTrue(headline.isDisplayed());
-        assertTrue(getExpectedContent().contains(textBelowHeadline.getText()));
+        assertEquals(PageContentTextEnum.TEXT_CONTENT.getText(), textBelowHeadline.getText());
         assertTrue(textBelowHeadline.isDisplayed());
     }
 }

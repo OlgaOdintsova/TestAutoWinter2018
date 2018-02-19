@@ -4,7 +4,9 @@ import com.codeborne.selenide.Condition;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
-import hwJDI.entities.User;
+import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
+import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JMenu;
+import hwJDI.enumJDI.HeaderMenuEnum;
 import hwJDI.enumJDI.UserEnum;
 import hwJDI.form.LoginForm;
 import org.openqa.selenium.support.FindBy;
@@ -23,19 +25,27 @@ public class Header extends Section{
     @FindBy(css = ".form-horizontal")
     private LoginForm loginForm;
 
-    // TODO you should create your OWN enum
     @FindBy(css = ".m-l8")
-    private Menu<Enum> menuHeader;
+    private Menu<HeaderMenuEnum> menuHeader;
+
+    @JMenu(
+            level1 = @JFindBy(css = "ul.m-l8>li a"),
+            level2 = @JFindBy(css = "ul.dropdown-menu>ul>li a")
+    )
+    private Menu multipleHeaderMenu;
 
     public void loginAsUser(UserEnum userEnum) {
         profilePhoto.click();
-        // TODO you should use ENUM or CLASS, not both of them, it is not make a sense !!
-        loginForm.loginAs(new User(userEnum));
-        userName.should(Condition.text(userEnum.userName));
+        loginForm.loginAs(userEnum.getUser());
+        userName.should(Condition.text(userEnum.getUser().getUserName()));
     }
 
-    // TODO this method will not work with second level of menu
-    public void selectOnMenu(String firstLevelOfMenu) {
-        menuHeader.select(firstLevelOfMenu);
+    public void selectOnMenu(HeaderMenuEnum headerMenuEnum) {
+        // TODO this should not be here, encapsulate this logic in Menu class.
+        String[] splitString = headerMenuEnum.page.split("\\|");
+        multipleHeaderMenu.hoverAndClick(splitString[0]);
+        if (splitString.length == 2) {
+            multipleHeaderMenu.hoverAndClick(splitString[1]);
+        }
     }
 }

@@ -1,19 +1,17 @@
 package hwJDI.enumJDI;
 
+import hwJDI.entities.User;
 import lombok.Getter;
 
-// TODO format code please
+// TODO I dont get it, what is the reason why you need USER_ENUM and USER_CLASS at once ??
+// TODO why dont you use smth one ?
 @Getter
 public enum UserEnum {
-        PITER("epam","1234","PITER CHAILOVSKI");
+    PITER(new User("epam", "1234", "PITER CHAILOVSKI"));
 
-        public final String login;
-        public final String password;
-        public final String userName;
+    private final User user;
 
-        UserEnum(String login, String password, String userName) {
-            this.login = login;
-            this.password = password;
-            this.userName = userName;
-        }
+    UserEnum(User user) {
+        this.user = user;
+    }
 }
