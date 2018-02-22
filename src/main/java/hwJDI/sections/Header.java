@@ -41,6 +41,7 @@ public class Header extends Section{
     }
 
     public void selectOnMenu(HeaderMenuEnum headerMenuEnum) {
+        // TODO this should not be here, encapsulate this logic in Menu class.
         String[] splitString = headerMenuEnum.page.split("\\|");
         multipleHeaderMenu.hoverAndClick(splitString[0]);
         if (splitString.length == 2) {

@@ -34,6 +34,12 @@ public class SubmitMetalColorFormTest extends TestNGBase {
         JDISite.login(PITER);
     }
 
+    // TODO i cant execute your test
+    //    java.lang.RuntimeException: java.lang.AssertionError: Do action Open page 'Home Page' failed. Can't get result. Reason: java.lang.AssertionError: Can't get driver; Thread: 1
+    //    Drivers: CHROME:com.epam.jdi.uitests.web.selenium.driver.SeleniumDriverFactory$$Lambda$34/1353070773@35dab4eb; Run: java.lang.ThreadLocal@72cc7e6fException: Timed out waiting for driver server to start.
+    //    Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+    //    Driver info: driver.version: ChromeDriver
+    // !TODO
     @Test
     public void submitMetalColorFormTest() {
         //Open Metals & Colors page by Header menu

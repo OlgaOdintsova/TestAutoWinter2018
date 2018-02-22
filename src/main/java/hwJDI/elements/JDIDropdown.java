@@ -22,7 +22,9 @@ public class JDIDropdown extends Dropdown {
     }
 
     public void select(List<String> items) {
-        clear();
-        items.forEach(this::select);
+        if(!items.isEmpty()) {
+            clear();
+            items.forEach(this::select);
+        }
     }
 }
