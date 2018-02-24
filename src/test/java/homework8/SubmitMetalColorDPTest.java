@@ -33,7 +33,7 @@ public class SubmitMetalColorDPTest extends TestNGBase {
     @Test(dataProvider = "mcData", dataProviderClass = MetalColorProvider.class)
     public void fillMetalColorFormTest(MetalColorFormData mcData) {
         //Open Metals & Colors page by Header menu
-        JDISite.homePage.header.selectOnMenu(METALS_AND_COLORS);
+        JDISite.homePage.header.getHeaderMenu().selectOnMenu(METALS_AND_COLORS);
 
         //Check Metals & Colors page is opened
         JDISite.metalsAndColorsPage.shouldBeOpened();

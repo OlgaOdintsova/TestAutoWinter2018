@@ -51,19 +51,14 @@ public class MetalColorForm extends Form<MetalColorFormData> {
             firstSummary.select(mcData.getSummary().get(0).toString());
             secondSummary.select(mcData.getSummary().get(1).toString());
         }
-        if (!mcData.getElements().isEmpty()) {
-            mcData.getElements().forEach(elements::select);
-        }
+        mcData.getElements().forEach(elements::select);
         if (!mcData.getColor().isEmpty()) {
             color.select(mcData.getColor());
         }
         if (!mcData.getMetals().isEmpty()) {
             metals.newInput(mcData.getMetals());
         }
-//        if (!mcData.getVegetables().isEmpty()) {
-//            vegetables.select(mcData.getVegetables());
-//        }
-        // !TODO
+
         vegetables.select(mcData.getVegetables()); // <-- TODO for the example. Take a look on JDIDropdown::select
 
         submit.click();

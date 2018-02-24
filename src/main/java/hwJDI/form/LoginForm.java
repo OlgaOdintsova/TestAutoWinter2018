@@ -4,10 +4,10 @@ import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.common.Text;
 import com.epam.jdi.uitests.web.selenium.elements.common.TextField;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
-import hwJDI.entities.User;
+import hwJDI.enumJDI.UserEnum;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginForm extends Form<User> {
+public class LoginForm extends Form<UserEnum> {
 
     @FindBy(css = "#Login")
     private TextField login;
