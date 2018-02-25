@@ -1,4 +1,4 @@
-package homework.emun;
+package homework.enums;
 
 import lombok.Getter;
 

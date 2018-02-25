@@ -1,6 +1,6 @@
 package homework.page;
 
-import homework.emun.PageContentTextEnum;
+import homework.enums.PageContentTextEnum;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.Set;
 
-import static homework.emun.UnderImagesTextEnum.getExpectedText;
+import static homework.enums.UnderImagesTextEnum.getExpectedText;
 import static java.util.stream.Collectors.toSet;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
