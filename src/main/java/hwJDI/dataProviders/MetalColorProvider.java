@@ -16,8 +16,8 @@ public final class MetalColorProvider {
     }
 
     @SneakyThrows
-    @DataProvider(name = "mcData")
-    public static Object[] mcData() {
+    @DataProvider(name = "getDataSet")
+    public static Object[] getDataSet() {
         File dataFile = new File(MetalColorProvider.class.getResource("../../ex8_jdi_metalsColorsDataSet.json").getFile());
         Map<String, MetalColorFormData> testDataSets = new ObjectMapper().readValue(dataFile, new TypeReference<TreeMap<String, MetalColorFormData>>() {
         });

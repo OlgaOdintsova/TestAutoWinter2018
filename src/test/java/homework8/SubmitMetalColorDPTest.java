@@ -1,3 +1,4 @@
+
 package homework8;
 
 import com.epam.jdi.uitests.core.settings.JDISettings;
@@ -30,8 +31,10 @@ public class SubmitMetalColorDPTest extends TestNGBase {
         JDISite.login(PITER);
     }
 
-    @Test(dataProvider = "mcData", dataProviderClass = MetalColorProvider.class)
-    public void fillMetalColorFormTest(MetalColorFormData mcData) {
+    @Test(dataProvider = "getDataSet", dataProviderClass = MetalColorProvider.class)
+    public void fillMetalColorFormTest(MetalColorFormData dataSet) {
+        checkCorrectValues(dataSet);
+
         //Open Metals & Colors page by Header menu
         JDISite.homePage.header.getHeaderMenu().selectOnMenu(METALS_AND_COLORS);
 
@@ -39,9 +42,19 @@ public class SubmitMetalColorDPTest extends TestNGBase {
         JDISite.metalsAndColorsPage.shouldBeOpened();
 
         //Fill form Metals & Colors by data(json)
-        JDISite.metalsAndColorsPage.metalColorForm.submit(mcData);
+        JDISite.metalsAndColorsPage.metalColorForm.submit(dataSet);
 
         //Check Result section
-        JDISite.metalsAndColorsPage.checkResult(mcData);
+        JDISite.metalsAndColorsPage.checkResult(dataSet);
+    }
+
+    private void checkCorrectValues(MetalColorFormData dataSet) {
+        if (dataSet.getSummary().size() != 2) {
+            throw new AssertionError("Summary should contain 2 integer numbers in source data set!");
+        } else if (dataSet.getColor() == null) {
+            throw new AssertionError("Color should be assigned in source data set!");
+        } else if (dataSet.getMetals() == null) {
+            throw new AssertionError("Metal should be assigned in source data set!");
+        }
     }
 }
