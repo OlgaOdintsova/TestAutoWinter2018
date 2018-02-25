@@ -46,25 +46,12 @@ public class MetalColorForm extends Form<MetalColorFormData> {
 
     public void submit(MetalColorFormData mcData) {
 
-        // TODO you should check the data field in certain UI element
-        if (!mcData.getSummary().isEmpty()) {
-            firstSummary.select(mcData.getSummary().get(0).toString());
-            secondSummary.select(mcData.getSummary().get(1).toString());
-        }
-        if (!mcData.getElements().isEmpty()) {
-            mcData.getElements().forEach(elements::select);
-        }
-        if (!mcData.getColor().isEmpty()) {
-            color.select(mcData.getColor());
-        }
-        if (!mcData.getMetals().isEmpty()) {
-            metals.newInput(mcData.getMetals());
-        }
-//        if (!mcData.getVegetables().isEmpty()) {
-//            vegetables.select(mcData.getVegetables());
-//        }
-        // !TODO
-        vegetables.select(mcData.getVegetables()); // <-- TODO for the example. Take a look on JDIDropdown::select
+        firstSummary.select(mcData.getSummary().get(0).toString());
+        secondSummary.select(mcData.getSummary().get(1).toString());
+        mcData.getElements().forEach(elements::select);
+        color.select(mcData.getColor());
+        metals.newInput(mcData.getMetals());
+        vegetables.select(mcData.getVegetables());
 
         submit.click();
     }
