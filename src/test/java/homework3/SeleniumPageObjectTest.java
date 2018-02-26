@@ -1,5 +1,6 @@
 package homework3;
 
+import homework.enums.UserEnum;
 import homework.page.IndexPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import static homework.enums.UserEnum.*;
 
 public class SeleniumPageObjectTest {
 
@@ -36,10 +39,10 @@ public class SeleniumPageObjectTest {
         indexPage.checkTitle(driver);
 
         //Perform login
-        indexPage.login("epam", "1234");
+        indexPage.login(PITER);
 
         //Assert User name in the left-top side of screen that user is logged
-        indexPage.checkUserName();
+        indexPage.checkUserName(PITER);
 
         //Assert Browser title
         indexPage.checkTitle(driver);

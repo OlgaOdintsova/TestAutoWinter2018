@@ -20,7 +20,7 @@ import static homework.enums.MetalsEnum.SELEN;
 import static homework.enums.ElementEnum.WATER;
 import static homework.enums.ElementEnum.WIND;
 import static homework.enums.ServiceMenuItemsEnum.ITEM_6;
-import static homework.enums.UserSelenEnum.PITER;
+import static homework.enums.UserEnum.PITER;
 
 
 @Listeners(AllureAttachmentListener.class)

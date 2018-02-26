@@ -1,9 +1,11 @@
 package homework.page;
 
 import homework.enums.PageContentTextEnum;
+import homework.enums.UserEnum;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.AssertJUnit;
 
 import java.util.List;
 import java.util.Set;
@@ -16,7 +18,7 @@ import static org.testng.Assert.assertTrue;
 public class IndexPage {
 
     @FindBy(css = ".uui-profile-menu .dropdown-toggle")
-    private WebElement loginFromButton;
+    private WebElement loginFormButton;
 
     @FindBy(css = "#Login")
     private WebElement loginInput;
@@ -42,10 +44,10 @@ public class IndexPage {
     @FindBy(css = ".main-txt")
     private WebElement textBelowHeadline;
 
-    public void login(String name, String password) {
-        loginFromButton.click();
-        loginInput.sendKeys(name);
-        passwordInput.sendKeys(password);
+    public void login(UserEnum user) {
+        loginFormButton.click();
+        loginInput.sendKeys(user.getLogin());
+        passwordInput.sendKeys(user.getPassword());
         submitButton.click();
     }
 
@@ -54,12 +56,11 @@ public class IndexPage {
     }
 
     public void checkTitle(WebDriver driver) {
-        assertEquals(driver.getTitle(), "Index Page");
+        assertEquals("Index Page", driver.getTitle());
     }
 
-    public void checkUserName() {
-        assertTrue(userName.isDisplayed());
-        assertTrue(userName.getText().equalsIgnoreCase("PITER CHAILOVSKII"));
+    public void checkUserName(UserEnum user) {
+        AssertJUnit.assertEquals(user.getUserName(), loginFormButton.getText());
     }
 
     public void checkImages() {

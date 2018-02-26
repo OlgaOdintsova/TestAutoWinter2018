@@ -13,7 +13,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.page;
 import static homework.enums.ServiceMenuItemsEnum.ITEM_2;
-import static homework.enums.UserSelenEnum.PITER;
+import static homework.enums.UserEnum.PITER;
 
 
 @Listeners(AllureAttachmentListener.class)

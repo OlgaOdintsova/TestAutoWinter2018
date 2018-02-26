@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import homework.enums.PageContentTextEnum;
 import homework.enums.ServiceMenuItemsEnum;
-import homework.enums.UserSelenEnum;
+import homework.enums.UserEnum;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -79,16 +79,15 @@ public class IndexPageSelenide {
     }
 
     @Step("login with {0}")
-    public void login(UserSelenEnum user) {
+    public void login(UserEnum user) {
         loginFormButton.click();
-        loginFormButton.should(visible);
         loginInput.sendKeys(user.getLogin());
         passwordInput.sendKeys(user.getPassword());
         submitButton.click();
     }
 
     @Step("check userName")
-    public void checkUsername(UserSelenEnum user) {
+    public void checkUsername(UserEnum user) {
         assertEquals(user.getUserName(), loginFormButton.getText());
     }
 
@@ -127,7 +126,7 @@ public class IndexPageSelenide {
     @Step("check HeaderSubMenu has all elements")
     public void checkHeaderSubMenu(ServiceMenuItemsEnum[] items) {
         headerMenuServiceButton.click();
-        for (int i = 1; i < items.length; i++) {
+        for (int i = 0; i < items.length; i++) {
             headerMenuServiceCategories.get(i).should(visible);
             assertEquals(items[i - 1].item, headerMenuServiceCategories.get(i).getText());
         }
